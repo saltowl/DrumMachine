@@ -13,7 +13,9 @@ class App extends React.Component {
             data={this.props.data}
             handleKeyPress={this.props.handleKeyPress}
             playSound={this.props.playSound}
+            handleSetChange={this.props.handleSetChange}
             currentSound={this.props.currentSound}
+            currentSet={this.props.currentSet}
         />
     );
   }

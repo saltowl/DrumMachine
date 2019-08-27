@@ -25,6 +25,7 @@ export const mapStateToProps = (state) => {
     return {
         data: state.rootReducer.data,
         currentSound: state.rootReducer.currentSound,
+        currentSet: state.rootReducer.currentSet
     };
 };
 
@@ -45,6 +46,8 @@ export const mapDispatchToProps = (dispatch) => {
                 dispatch(handleKeyPress(sound.id));
             }
         },
+        handleSetChange: (set) => {
+            dispatch(handleSetChange(set));
         }
     };
 };

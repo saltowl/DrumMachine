@@ -8,6 +8,9 @@ function rootReducer(state = data.INITIAL_STATE, action = {}) {
         case data.PLAY_SOUND:
             newState.currentSound = action.currentSound;
             return newState;
+        case data.HANDLE_SET_CHANGE:
+            newState.currentSet = action.currentSet;
+            return newState;
         default:
             return state;
     }
