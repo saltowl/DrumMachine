@@ -14,6 +14,12 @@ const playSound = (currentSound) => {
     }
 };
 
+const loopSound = () => {
+  return {
+      type: data.LOOP_SOUND
+  };
+};
+
 const handleSetChange = (currentSet) => {
     return {
         type: data.HANDLE_SET_CHANGE,
@@ -44,6 +50,11 @@ export const mapDispatchToProps = (dispatch) => {
             sound.currentTime = 0;
             sound.play();
             dispatch(playSound(sound.id));
+        },
+        loopSound: (keyName) => {
+            const sound = document.getElementById(keyName).firstElementChild;
+            sound.loop = !sound.loop;
+            dispatch(loopSound());
         },
         handleKeyPress: (event) => {
             const parEl = document.getElementById(String.fromCharCode(event.keyCode));

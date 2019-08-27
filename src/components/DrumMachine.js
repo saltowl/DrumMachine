@@ -40,6 +40,7 @@ class DrumMachine extends React.Component {
               <Pad
                   handleKeyPress={this.props.handleKeyPress}
                   playSound={this.props.playSound}
+                  loopSound={this.props.loopSound}
                   data={currentData}
               />
           </div>

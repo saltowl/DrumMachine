@@ -15,6 +15,7 @@ class App extends React.Component {
             playSound={this.props.playSound}
             handleSetChange={this.props.handleSetChange}
             handleVolumeChange={this.props.handleVolumeChange}
+            loopSound={this.props.loopSound}
             currentSound={this.props.currentSound}
             currentSet={this.props.currentSet}
             currentVolume={this.props.currentVolume}

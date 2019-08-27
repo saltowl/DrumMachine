@@ -14,6 +14,8 @@ function rootReducer(state = data.INITIAL_STATE, action = {}) {
         case data.HANDLE_VOLUME_CHANGE:
             newState.currentVolume = action.currentVolume;
             return newState;
+        case data.LOOP_SOUND:
+            return state;
         default:
             return state;
     }

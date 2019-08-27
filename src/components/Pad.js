@@ -16,6 +16,7 @@ class Pad extends React.Component {
                     keyName={obj.keyName}
                     handleKeyPress={this.props.handleKeyPress}
                     playSound={this.props.playSound}
+                    loopSound={this.props.loopSound}
                 />
             );
             pad.push(element);
