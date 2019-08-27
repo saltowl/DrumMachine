@@ -7,9 +7,13 @@ class DrumMachine extends React.Component {
         super(props);
 
         this.handleSetChange = this.handleSetChange.bind(this);
+        this.handleVolumeChange = this.handleVolumeChange.bind(this);
     }
     handleSetChange(event) {
         this.props.handleSetChange(event.target.value);
+    }
+    handleVolumeChange(event) {
+        this.props.handleVolumeChange(event.target.value);
     }
     render() {
         const startSetIndex = this.props.currentSet * KEYS_NUMBER;
@@ -26,6 +30,11 @@ class DrumMachine extends React.Component {
                           <option value="1">Set1</option>
                           <option value="2">Set2</option>
                       </select>
+                  </div>
+                  <div className={'col'}>
+                      <label htmlFor="formControlRange">Volume</label>
+                      <input type="range" className="form-control-range" id="formControlRange" min={0} max={1}
+                             step={0.01} value={this.props.currentVolume} onChange={this.handleVolumeChange}/>
                   </div>
               </div>
               <Pad

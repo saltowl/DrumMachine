@@ -19,13 +19,21 @@ const handleSetChange = (currentSet) => {
         type: data.HANDLE_SET_CHANGE,
         currentSet
     }
-}
+};
+
+const handleVolumeChange = (currentVolume) => {
+    return {
+        type: data.HANDLE_VOLUME_CHANGE,
+        currentVolume
+    };
+};
 
 export const mapStateToProps = (state) => {
     return {
         data: state.rootReducer.data,
         currentSound: state.rootReducer.currentSound,
-        currentSet: state.rootReducer.currentSet
+        currentSet: state.rootReducer.currentSet,
+        currentVolume: state.rootReducer.currentVolume
     };
 };
 
@@ -48,6 +56,12 @@ export const mapDispatchToProps = (dispatch) => {
         },
         handleSetChange: (set) => {
             dispatch(handleSetChange(set));
+        },
+        handleVolumeChange: (volumeVal) => {
+            [].slice.call(document.getElementsByClassName('clip')).forEach((sound) => {
+               sound.volume = volumeVal;
+            });
+            dispatch(handleVolumeChange(volumeVal));
         }
     };
 };

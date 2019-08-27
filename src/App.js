@@ -14,8 +14,10 @@ class App extends React.Component {
             handleKeyPress={this.props.handleKeyPress}
             playSound={this.props.playSound}
             handleSetChange={this.props.handleSetChange}
+            handleVolumeChange={this.props.handleVolumeChange}
             currentSound={this.props.currentSound}
             currentSet={this.props.currentSet}
+            currentVolume={this.props.currentVolume}
         />
     );
   }

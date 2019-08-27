@@ -11,6 +11,9 @@ function rootReducer(state = data.INITIAL_STATE, action = {}) {
         case data.HANDLE_SET_CHANGE:
             newState.currentSet = action.currentSet;
             return newState;
+        case data.HANDLE_VOLUME_CHANGE:
+            newState.currentVolume = action.currentVolume;
+            return newState;
         default:
             return state;
     }

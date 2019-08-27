@@ -21,10 +21,12 @@ export const INITIAL_STATE = {
     'rootReducer': {
         'data': padData,
         'currentSound': '',
-        'currentSet': 0
+        'currentSet': 0,
+        'currentVolume': 0.2
     }
 };
 
 export const PLAY_SOUND = 'PLAY_SOUND';
 export const HANDLE_KEY_PRESS = 'HANDLE_KEY_PRESS';
 export const HANDLE_SET_CHANGE = 'HANDLE_SET_CHANGE';
+export const HANDLE_VOLUME_CHANGE = 'HANDLE_VOLUME_CHANGE';
