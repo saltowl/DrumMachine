@@ -7,8 +7,12 @@ class DrumMachine extends React.Component {
     }
     render() {
         return (
-          <div id={'drum-machine'}>
-              <div id={'display'}></div>
+          <div id={'drum-machine'} className={'container'}>
+              <div className={'row'}>
+                  <div className={'col'}>
+                      <div id={'display'}>{this.props.currentSound}</div>
+                  </div>
+              </div>
               <Pad
                   handleKeyPress={this.props.handleKeyPress}
                   playSound={this.props.playSound}

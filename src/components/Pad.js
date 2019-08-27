@@ -12,8 +12,8 @@ class Pad extends React.Component {
             let element = (
                 <PadElement
                     src={obj.src}
+                    name={obj.name}
                     keyName={obj.keyName}
-                    keyCode={obj.keyCode}
                     handleKeyPress={this.props.handleKeyPress}
                     playSound={this.props.playSound}
                 />

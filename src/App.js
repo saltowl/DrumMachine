@@ -13,6 +13,7 @@ class App extends React.Component {
             data={this.props.data}
             handleKeyPress={this.props.handleKeyPress}
             playSound={this.props.playSound}
+            currentSound={this.props.currentSound}
         />
     );
   }
