@@ -20,7 +20,7 @@ class PadElement extends React.Component {
     }
     render() {
         return (
-            <div className={'drum-pad col'} onClick={this.handleClick} id={this.props.keyName} onDoubleClick={this.handleDoubleClick}>
+            <div className={'drum-pad d-flex justify-content-center align-items-center'} onClick={this.handleClick} id={this.props.keyName} onDoubleClick={this.handleDoubleClick}>
                 <audio src={this.props.src} id={this.props.name} className={'clip'}/>
                 {this.props.keyName}
             </div>
