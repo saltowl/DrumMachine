@@ -140,6 +140,18 @@ h1 {
 }
 /* --------------------------------------- */
 
+.pressedKey {
+    animation-name: pressKey;
+    animation-duration: 500ms;
+}
+
+@keyframes pressKey {
+    0% {
+        background: #FFDDC2;
+        color: #6E3C13;
+    }
+}
+
 @media screen and (max-width: 550px) {
     #app {
         --setting-width: 100%;

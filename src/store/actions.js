@@ -44,9 +44,23 @@ export const mapStateToProps = (state) => {
 };
 
 export const mapDispatchToProps = (dispatch) => {
+    const pressedKeyClass = 'pressedKey';
     return {
         playSound: (keyName) => {
-            const sound = document.getElementById(keyName).firstElementChild;
+            const key = document.getElementById(keyName);
+
+            const prevKey = document.getElementsByClassName(pressedKeyClass)[0];
+            if (prevKey) {
+                prevKey.classList.remove(pressedKeyClass);
+
+                if (prevKey.id === key.id) {
+                    void prevKey.offsetWidth;
+                }
+            }
+
+            key.classList.add(pressedKeyClass);
+
+            const sound = key.firstElementChild;
             sound.currentTime = 0;
             sound.play();
             dispatch(playSound(sound.id));
@@ -57,9 +71,19 @@ export const mapDispatchToProps = (dispatch) => {
             dispatch(loopSound());
         },
         handleKeyPress: (event) => {
-            const parEl = document.getElementById(String.fromCharCode(event.keyCode));
-            if (parEl) {
-                const sound = parEl.firstElementChild;
+            const key = document.getElementById(String.fromCharCode(event.keyCode));
+            if (key) {
+                const prevKey = document.getElementsByClassName(pressedKeyClass)[0];
+                if (prevKey) {
+                    prevKey.classList.remove(pressedKeyClass);
+
+                    if (prevKey.id === key.id) {
+                        void prevKey.offsetWidth;
+                    }
+                }
+                key.classList.add(pressedKeyClass);
+
+                const sound = key.firstElementChild;
                 sound.currentTime = 0;
                 sound.play();
                 dispatch(handleKeyPress(sound.id));
