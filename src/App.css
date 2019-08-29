@@ -30,6 +30,7 @@ h1 {
     margin: 8px 0 8px 0;
     background: #B57F53;
     color: #FFDDC2;
+    cursor: pointer;
 }
 
 #display {
@@ -132,6 +133,7 @@ h1 {
     font-weight: bold;
     border: none;
     width: var(--setting-width);
+    cursor: pointer;
 }
 
 #set-selector:focus {
