@@ -1,13 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import PadElement from '../pad-element';
 
-export default function Pad({ data, setSound, sound }) {
-  const playSound = (keyName) => {
-    const sound = document.getElementById(keyName).firstElementChild;
-    sound.currentTime = 0;
-    sound.play();
-    setSound(sound.id);
-  };
+export default function Pad({ data, setSound }) {
+  const playSound = useCallback(
+    (key) => {
+      if (key) {
+        const sound = key.firstElementChild;
+        sound.currentTime = 0;
+        key.classList.add('pressed');
+        sound.play();
+        setTimeout(() => {
+          key.classList.remove('pressed');
+        }, 100);
+        setSound(sound.id);
+      }
+    },
+    [setSound],
+  );
 
   const loopSound = (keyName) => {
     const sound = document.getElementById(keyName).firstElementChild;
@@ -17,18 +26,13 @@ export default function Pad({ data, setSound, sound }) {
   useEffect(() => {
     const handleKeyPress = (event) => {
       const key = document.getElementById(String.fromCharCode(event.keyCode));
-      if (key) {
-        const sound = key.firstElementChild;
-        sound.currentTime = 0;
-        sound.play();
-        setSound(sound.id);
-      }
+      playSound(key);
     };
     document.addEventListener('keydown', handleKeyPress);
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [setSound]);
+  }, [playSound]);
 
   const pad = [];
   data.forEach(({ name, src, keyName }, i) => {
@@ -38,9 +42,8 @@ export default function Pad({ data, setSound, sound }) {
           src={src}
           name={name}
           keyName={keyName}
-          playSound={playSound}
+          playSound={(keyName) => playSound(document.getElementById(keyName))}
           loopSound={loopSound}
-          pressed={sound === name}
         />
       </div>,
     );

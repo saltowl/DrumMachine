@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './drum-machine.css';
 import Pad from '../pad';
 
 export default function DrumMachine({ data, sound, volume, setPreset, setVolume }) {

@@ -1,0 +1,16 @@
+.drum-pad {
+  border-radius: 5px;
+  -webkit-box-shadow: var(--border-shadow-pad);
+  -moz-box-shadow: var(--border-shadow-pad);
+  box-shadow: var(--border-shadow-pad);
+  height: 40px;
+  margin: 8px 0 8px 0;
+  background: #b57f53;
+  color: #ffddc2;
+  cursor: pointer;
+}
+
+.pressed {
+  background: #ffddc2;
+  color: #6e3c13;
+}
