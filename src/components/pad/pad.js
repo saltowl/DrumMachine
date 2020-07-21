@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import PadElement from '../pad-element';
 
-export default function Pad({ data, setSound }) {
+export default React.memo(function Pad({ data, setSound }) {
   const playSound = useCallback(
     (key) => {
       if (key) {
@@ -58,4 +58,4 @@ export default function Pad({ data, setSound }) {
       <div className={'row'}>{pad}</div>
     </div>
   );
-}
+});
